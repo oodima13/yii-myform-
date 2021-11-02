@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\MyForm;
+use app\models\Comments;
 
 class SiteController extends Controller
 {
@@ -155,5 +156,15 @@ class SiteController extends Controller
         'email' => $email
         ]
     );
+    }
+
+    public function actionComments() {
+
+        $comments = Comments::find()->all();
+
+        return $this->render('comments', [
+        'comments' => $comments
+
+        ]);
     }
 }
